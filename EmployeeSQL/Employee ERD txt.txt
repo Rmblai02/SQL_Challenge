@@ -1,0 +1,43 @@
+#  Creating table schema
+#  Create table departments
+
+departments
+--
+dept_no VARCHAR(10) PK
+dept_name VARCHAR(30)
+
+#  Create table employees
+employees
+--
+emp_no INT PK
+emp_title_id VARCHAR(20) FK >- titles.title_id
+birth_date DATE
+first_name VARCHAR(20)
+last_name VARCHAR(20)
+sex VARCHAR(2)
+hire_date DATE
+
+# Create table dept_emp
+dept_emp
+--
+emp_no INT FK >- employees.emp_no
+dept_no VARCHAR(10) FK >- departments.dept_no
+
+#  Create table dept_managers
+dept_managers
+--
+dept_no VARCHAR(10) FK >- departments.dept_no
+emp_no INT FK >- employees.emp_no
+
+# Creating salaries table
+salaries
+--
+emp_no INT FK >- employees.emp_no
+salary INT
+
+# Creating titles table
+titles
+--
+title_id VARCHAR(20) PK
+title VARCHAR(20)
+
